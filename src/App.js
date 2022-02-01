@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import i18next from "i18next";
+import config from "./config";
+import { helpers } from "./services";
+import { RouteWrapper } from "./routes";
+import { useSelector } from "react-redux";
+import { changeLanguage } from "store/actions/system";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+	const dispatch = useDispatch();
+	const lang = useSelector(state => state.system.currentLangCode);
+
+	const setLanguage = () => {
+		const pathname = window.location.pathname;
+		const locationLang = pathname.split("/")[1] || lang;
+
+		if (helpers.isEnableLang(locationLang)) {
+			i18next.changeLanguage(locationLang);
+			dispatch(changeLanguage(locationLang));
+		} else {
+			i18next.changeLanguage(config.DEFAULT_LANGUAGE);
+			dispatch(changeLanguage(config.DEFAULT_LANGUAGE));
+		}
+	};
+
+	useEffect(() => {
+		setLanguage();
+	}, [])
+
+	return <><RouteWrapper /></>;
 }
 
 export default App;
