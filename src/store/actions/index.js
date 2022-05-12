@@ -1,5 +1,3 @@
 import systemAction from "./system";
 
-export {
-    systemAction
-}
+export { systemAction };

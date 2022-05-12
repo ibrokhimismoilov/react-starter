@@ -1,7 +1,5 @@
 import useCreateData from "./create";
-import useGetData from "./read";
+import useGetAll from "./get/useGetAll";
+import UseGetOne from "./get/useGetOne";
 
-export {
-    useCreateData,
-    useGetData,
-}
+export { useGetAll, UseGetOne, useCreateData };

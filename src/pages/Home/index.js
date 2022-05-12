@@ -1,47 +1,23 @@
-import { useGetData } from "hooks/crud";
+import { useGetAll } from "hooks/crud";
 import useDocumentTitle from "hooks/useDocumentTitle";
+import ContainerAll from "modules/containers/all";
 import React from "react";
 
 const Home = () => {
-    useDocumentTitle("Home page");
+	useDocumentTitle("Home page");
 
-    // const { data } = useGetData({
-    //     name: "posts",
-    //     url: "/posts",
-    //     params: {
-    //         sort: "-published_at",
-    //         limit: 20,
-    //         include: "category,tags",
-    //     },
-    //     onSuccess: (data) => {
-    //         console.log("Success", data);
-    //     },
-    //     onError: (err) => {
-    //         console.log("Error", err);
-    //     }
-    // });
+	// const data = useGetAll({ name: "name", url: "/settings" });
 
-    const getData = useGetData({
-        name: "menus",
-        url: "/menus",
-        params: {
-            // sort: "-published_at",
-            // limit: 20,
-            include: "menuItems",
-        },
-        onSuccess: (data) => {
-            console.log("Success", data);
-        },
-        onError: (err) => {
-            console.log("Error", err);
-        }
-    });
+	// console.log(data);
 
-
-    console.log("data", getData)
-    return (
-        <h1>Home page</h1>
-    )
-}
+	return (
+		<ContainerAll name="name" url="/settings">
+			{data => {
+				console.log("data", data);
+				return <h1>Home | Lorem, ipsum dolor.</h1>;
+			}}
+		</ContainerAll>
+	);
+};
 
 export default Home;

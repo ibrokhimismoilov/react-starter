@@ -1,5 +1,1 @@
-
-export const GET_MENU_START = "GET_MENU_START";
-export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS";
-export const GET_MENU_FAIL = "GET_MENU_FAIL";
 export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";

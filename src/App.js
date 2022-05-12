@@ -7,7 +7,6 @@ import { RouteWrapper } from "./routes";
 import { useSelector } from "react-redux";
 import { changeLanguage } from "store/actions/system";
 
-
 const App = () => {
 	const dispatch = useDispatch();
 	const lang = useSelector(state => state.system.currentLangCode);
@@ -27,9 +26,9 @@ const App = () => {
 
 	useEffect(() => {
 		setLanguage();
-	}, [])
+	}, []);
 
-	return <><RouteWrapper /></>;
-}
+	return <RouteWrapper />;
+};
 
 export default App;

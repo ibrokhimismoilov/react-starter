@@ -8,6 +8,7 @@ const config = {
 		{ id: 1, code: "uz", title: "Ўзбекча", short: "ЎЗ" },
 		{ id: 2, code: "ru", title: "Русский", short: "RU" },
 		{ id: 3, code: "en", title: "English", short: "EN" },
+		{ id: 4, code: "oz", title: "O'zbekcha", short: "OZ" }
 	]
 };
 
